@@ -1,3 +1,8 @@
+"""This class objective is to create a character and center on the screen.
+Should use own personal character bmp file. However, using another ship
+easier.
+"""
+
 import pygame
 
 class Character():
@@ -17,5 +22,3 @@ class Character():
     def blitme(self):
         """Draw ship at its current location."""
         self.screen.blit(self.image, self.rect)
-        
-        #dkjashdlkasdh

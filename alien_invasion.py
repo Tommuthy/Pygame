@@ -1,9 +1,9 @@
-import sys
 import pygame
+import game_functions as gf
 
 from settings import Settings
 from ship import Ship
-from character import Character
+#from character import Character
 
 def run_game():
     #intialize pygame, settings, and create a screen object.
@@ -15,23 +15,16 @@ def run_game():
     
     # Make a ship and character
     ship = Ship(screen)
-    character = Character(screen)
+    #character = Character(screen) 
 
     # Start the main loop for the game.
     while True:
-        
         # Watch for keyboard and mouse events.
-        for event in pygame.event.get():
-           if event.type == pygame.QUIT:
-                 sys.exit()
-        
-        # Redraw the screen during each pass through the loop. 
-        screen.fill(ai_settings.bg_color)
-        ship.blitme()
-        character.blitme()
+        gf.check_events()
        
-        # Make the most recently drawn screen visible.
-        pygame.display.flip()
-
+        # Redraw the screen during each pass through the loop. 
+        gf.update_screen(ai_settings, screen, ship)
+        # character.blitme()
+        
 run_game()
-#a,dhsanhdkjl;
+ 
