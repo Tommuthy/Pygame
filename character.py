@@ -17,3 +17,5 @@ class Character():
     def blitme(self):
         """Draw ship at its current location."""
         self.screen.blit(self.image, self.rect)
+        
+        #dkjashdlkasdh
