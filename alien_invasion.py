@@ -5,6 +5,7 @@ import game_functions as gf
 from settings import Settings
 from ship import Ship
 #from character import Character
+from pygame.sprite import Group
 
 def run_game():
     #intialize pygame, settings, and create a screen object.
@@ -16,16 +17,24 @@ def run_game():
     
     # Make a ship and character
     ship = Ship(ai_settings, screen)
+    
     #character = Character(screen) 
 
+    # Make a group to store bullets in.
+    bullets = Group()
+    
     # Start the main loop for the game.
     while True:
         # Watch for keyboard and mouse events.
-        gf.check_events(ship)
+        gf.check_events(ai_settings, screen, ship, bullets)
         # Update the ship based on movement flag.
-        ship.update()       
+        ship.update()
+        # Update the bullets based on movement flag and remove bullets.        
+        gf.update_bullets(bullets)
+        # To see the number of bullets return to 0 after shoooting.
+        #print(len(bullets)) 
         # Redraw the screen during each pass through the loop. 
-        gf.update_screen(ai_settings, screen, ship)
+        gf.update_screen(ai_settings, screen, ship, bullets)
         # character.blitme()
         
 run_game()
