@@ -34,6 +34,8 @@ def run_game():
         gf.update_bullets(bullets)
         # To see the number of bullets return to 0 after shooting.
         #print(len(bullets)) 
+        # Update aliens to move.
+        gf.update_aliens(ai_settings, aliens)
         # Redraw the screen during each pass through the loop. 
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
         # character.blitme()
