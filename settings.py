@@ -11,7 +11,7 @@ class Settings():
         self.ship_speed_factor = 1.5
 
         # Bullet settings. 
-        self.bullet_speed_factor = 1 # per pixel
+        self.bullet_speed_factor = 3 # per pixel
         self.bullet_width = 3 # per pixel
         self.bullet_height = 15 # per pixel
         self.bullet_color = 60, 60, 60 # RBG gray scale

@@ -31,7 +31,7 @@ def run_game():
         # Update the ship based on movement flag.
         ship.update()
         # Update the bullets based on movement flag and remove bullets.        
-        gf.update_bullets(bullets)
+        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
         # To see the number of bullets return to 0 after shooting.
         #print(len(bullets)) 
         # Update aliens to move.
