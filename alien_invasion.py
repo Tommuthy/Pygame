@@ -5,8 +5,8 @@ import game_functions as gf
 from settings import Settings
 from ship import Ship
 from alien import Alien
-#from character import Character
 from pygame.sprite import Group
+from game_stats import GameStats
 
 def run_game():
     #intialize pygame, settings, and create a screen object.
@@ -24,6 +24,9 @@ def run_game():
     # Create a fleet of aliens.
     gf.create_fleet(ai_settings, screen, ship, aliens)
     
+    # Create an instance to store game statistics.
+    stats = GameStats(ai_settings)
+    
     # Start the main loop for the game.
     while True:
         # Watch for keyboard and mouse events.
@@ -35,10 +38,10 @@ def run_game():
         # To see the number of bullets return to 0 after shooting.
         #print(len(bullets)) 
         # Update aliens to move.
-        gf.update_aliens(ai_settings, aliens)
-        # Redraw the screen during each pass through the loop. 
-        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
-        # character.blitme()
+        if stats.game_active:
+            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+            # Redraw the screen during each pass through the loop. 
+            gf.update_screen(ai_settings, screen, ship, aliens, bullets)
+            
         
 run_game()
- 

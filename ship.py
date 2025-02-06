@@ -18,7 +18,9 @@ class Ship():
         # Store decimal value for ship's center.
         self.centerx = float(self.rect.centerx)
         self.centery = float(self.rect.centery)
-       
+        # Store value of the bottom of the ships image and the bottom of the screen.
+        self.bottom = float(self.centery)
+        
         # Movement flag
         self.moving_right = False
         self.moving_left = False
@@ -41,7 +43,14 @@ class Ship():
         # Update coordinates from x and y
         self.rect.centery = self.centery 
         self.rect.centerx = self.centerx
-          
+                 
+    def center_ship(self):
+        """Center the ship on the screen."""
+        self.centerx = self.screen_rect.centerx
+        # Alignment of the bottom of the ship image to the bottom of the screen.
+        self.centery = self.bottom
+        
+        
     def blitme(self):
         """Draw ship at its current location."""
         self.screen.blit(self.image, self.rect)
